@@ -30,6 +30,7 @@ public class SokuchiAPI {
 	 * @author kawakicchi
 	 */
 	public static enum SokuchiKei {
+
 		/** 日本測地系 - 1 */
 		Japan("日本測地系", 1),
 		/** 世界測地系 - 2 */
@@ -188,13 +189,13 @@ public class SokuchiAPI {
 	 * @return 平面直角座標情報
 	 */
 	@SuppressWarnings({ "unchecked" })
-	public Bl2xyEntity bl2xy(final double latitude, final double longitude, final int zone) {
+	public Bl2xyEntity bl2xy(final double latitude, final double longitude, final Zone zone) {
 		Bl2xyEntity result = null;
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("outputType", "json");
 		params.put("refFrame", Integer.toString(sokuchiKei.getValue()));
-		params.put("zone", Integer.toString(zone));
+		params.put("zone", Integer.toString(zone.getNo()));
 		params.put("latitude", Double.toString(latitude));
 		params.put("longitude", Double.toString(longitude));
 
@@ -221,13 +222,13 @@ public class SokuchiAPI {
 	 * @return 緯度・経度情報
 	 */
 	@SuppressWarnings({ "unchecked" })
-	public Xy2blEntity xy2bl(final double publicX, final double publicY, final int zone) {
+	public Xy2blEntity xy2bl(final double publicX, final double publicY, final Zone zone) {
 		Xy2blEntity result = null;
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("outputType", "json");
 		params.put("refFrame", Integer.toString(sokuchiKei.getValue()));
-		params.put("zone", Integer.toString(zone));
+		params.put("zone", Integer.toString(zone.getNo()));
 		params.put("publicX", Double.toString(publicX));
 		params.put("publicY", Double.toString(publicY));
 
