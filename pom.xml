@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.azkfw</groupId>
 			<artifactId>azuki-base</artifactId>
-			<version>1.4.1</version>
+			<version>1.4.4</version>
 		</dependency>
 
 		<dependency>
